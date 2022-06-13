@@ -1,0 +1,124 @@
+.navg{
+    position: fixed;
+    justify-content: space-between;
+    height: 130px;
+    margin-top: -50px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: .3s ease-in;
+    overflow: hidden;
+}
+.navg_bg{
+    background-color: #A6CFCA;
+    box-shadow: -1px 5px 6px -1px rgba(201, 201, 201, 0.38);
+    -webkit-box-shadow: -1px 5px 6px -1px rgba(193, 193, 193, 0.38);
+    -moz-box-shadow: -1px 5px 6px -1px rgba(202, 202, 202, 0.38);
+}
+.sticky-nv{
+    position: sticky;
+    top: 0;
+}
+.navb{
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: .3s ease-in;
+    overflow: hidden;
+}
+.navb_bg{
+    background-color: #A6CFCA;
+    box-shadow: -1px 5px 6px -1px rgba(201, 201, 201, 0.38);
+    -webkit-box-shadow: -1px 5px 6px -1px rgba(193, 193, 193, 0.38);
+    -moz-box-shadow: -1px 5px 6px -1px rgba(202, 202, 202, 0.38);
+}
+.logo>img{
+    padding: 20px;
+    width: 150px;
+    height: 150px;
+}
+.ft-white{
+    color: white;
+}
+
+/* Mobile */
+
+@media (max-width: 725px){
+    .bg-mobile{
+        background-color: #A6CFCA;
+    }
+    .navg{
+        margin-left: 0px;
+        width: 395px;
+        height: 220px;
+    }
+    .navbar-collapse{
+        background-color: #A6CFCA;
+        margin: -15px;
+        margin-top: -40px;
+        height: 120px;
+    }
+    .navb{
+        margin-top: -40px;
+        height: 130px;
+    }
+    .mobile-mt-4{
+        margin-top: 40px;
+    }
+    .mobile-mt-3{
+        margin-top: 30px;
+    }
+    .mobile-mt-2{
+        margin-top: 20px;
+    }
+    .mobile-mt-1{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 540px){
+    .navg{
+        width: 100%;
+        height: auto;
+    }
+    .navbar-collapse{
+        background-color: #A6CFCA;
+        margin: -15px;
+        margin-top: -40px;
+        height: 120px;
+    }
+}
+
+/* desktop */
+@media (min-width: 1240px){
+    .navb_bg{
+        /* justify-content: space-between; */
+        /* display: flex; */
+        padding-top: 20px;
+        justify-content: space-between;
+        height: 80px;
+        /* margin-top: -60px; */
+        /* padding-top: -50px; */
+    }
+    .navg{
+        padding: 10px;
+        padding-top: 5px;
+        height: 115px;
+    }
+    .rspnsv{
+        /* display: flex; */
+        height: 25px;
+    }
+    .rspsv{
+        margin-top: -10px;
+    }
+    .d-content-mid{
+        align-items: center;
+        /* display: flex; */
+    }
+}
