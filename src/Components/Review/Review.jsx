@@ -6,10 +6,10 @@ import { Star, StarBorder } from '@mui/icons-material'
 export const Review = () => {
 
   const [review, setReview] = useState([]);
-  const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [reviewsPerPage, setReviewsPerPage] = useState(10);
+  // const [reviews, setReviews] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [reviewsPerPage, setReviewsPerPage] = useState(10);
 
   const getReview = async () => {
     try{
@@ -25,9 +25,9 @@ export const Review = () => {
     getReview();
   }, [])
 
-  const indexOfLastReview = currentPage * reviewsPerPage;
-  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
-  const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
+  // const indexOfLastReview = currentPage * reviewsPerPage;
+  // const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+  // const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
 
   return (
     <div className='mt-4 mb-4'>
