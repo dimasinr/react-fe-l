@@ -1,15 +1,77 @@
 // import * as ReactBootstrap from 'react-bootstrap'
 import { Star, StarHalf, StarBorder } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
+import Slider from 'react-slick'
 
 function RecBeauty() {
+
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "rgb(195, 195, 195)", borderRadius: "60%" }}
+        onClick={onClick}
+      />
+    );
+  }
+  
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "rgb(195, 195, 195)",  borderRadius: "60%" }}
+      onClick={onClick}
+    />
+  );
+}
+  
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
   return (
     <div>
     <div className="mb-4 mt-2 d-flex">
-      <h2>Recomended Treatments</h2> <button className='ml-1 beauty-btn' style={{ fontWeight: '600' }}>See All Treatment</button>
+      <h2 className='fw-bold'>Recomended Treatments</h2> <button className='ml-1 beauty-btn' style={{ fontWeight: '600' }}>See All Treatment</button>
     </div>
 
    <div className="row mb-4 col-md-12 ml-auto">                                                                                                                                                                                                                                                 
+
+   <Slider {... settings}>
 
    <div className="col-sm-3 mb-4">
       <Link to='/treatment/booking/eyelash+extension' className='mse'>
@@ -82,8 +144,55 @@ function RecBeauty() {
           </div>
     </div>
 
-      </div>
+    <div className="col-sm-3 mb-4">
+      <div className="cards">
+            <img className="card-img-top" src="https://img.my-best.id/press_component/images/8023c2ca8ad4e0ed9af6f5c318a7fc0d.jpg?ixlib=rails-4.2.0&q=70&lossless=0&w=690&fit=max" style={{ height: '160px' }} alt="" />
+              <div className="card-body">
+                <div className="mt-4">
+                  <span className='fw-bold'>Eyebrow</span>
+                </div>
+              <span className='text-secondary mb-1'>Wylash Glaw</span>
+                <span className='star-desc'>
+                  <Star /> 
+                  <Star /> 
+                  <Star /> 
+                  <StarHalf /> 
+                  <StarBorder /> 
+                  <div className="rate-star-beauty">
+                    3.5
+                  </div>
+                </span>
+              <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> 
+            </div>
+          </div>
+    </div>
 
+    <div className="col-sm-3 mb-4">
+      <div className="cards">
+            <img className="card-img-top" src="https://img.my-best.id/press_component/images/8023c2ca8ad4e0ed9af6f5c318a7fc0d.jpg?ixlib=rails-4.2.0&q=70&lossless=0&w=690&fit=max" style={{ height: '160px' }} alt="" />
+              <div className="card-body">
+                <div className="mt-4">
+                  <span className='fw-bold'>Eyebrow</span>
+                </div>
+              <span className='text-secondary mb-1'>Wylash Glaw</span>
+                <span className='star-desc'>
+                  <Star /> 
+                  <Star /> 
+                  <Star /> 
+                  <StarHalf /> 
+                  <StarBorder /> 
+                  <div className="rate-star-beauty">
+                    3.5
+                  </div>
+                </span>
+              <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> 
+            </div>
+          </div>
+    </div>
+
+    </Slider>
+
+    </div>
 </div>
   )
 }

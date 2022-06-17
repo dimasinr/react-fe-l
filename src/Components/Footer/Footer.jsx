@@ -26,6 +26,10 @@ const Footer = () => {
               <p className="text-white">
                     Download
                 </p>
+                <div className="d-flex justify-content-space-between">
+                    <img src="https://lolab.id/static/assets/img/android.png" className='mobile-app-store' alt="Lolab Play Store" />
+                    <img src="https://lolab.id/static/assets/img/apple.png" className='ml-2 mobile-app-store' alt="Lolab App Store" />
+                </div>
               </div>
             </div>
           </div>

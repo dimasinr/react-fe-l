@@ -23,7 +23,7 @@ function Login() {
     }
     const handleApi = () => {
         console.log({ email, password })
-        axios.post('https://reqres.in/api/login',{
+        axios.get('http://localhost:3004/users',{
             email: email,
             password: password
         })
@@ -48,8 +48,8 @@ return (
 
         <div className="row login-between">
             <div className="col-md-4">
-            <div className="emblem">
-            <img src={emblem} alt="" />
+            <div>
+            <img className="emblem" src={emblem} alt="" />
             </div>                
             </div>
             

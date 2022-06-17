@@ -1,11 +1,70 @@
-import React from 'react'
+import React,{ useState } from 'react'
+import axios from 'axios'
 import { NavbarMin } from '../../Components/Navbar/NavbarMin'
 import { Box, TextField } from '@mui/material';
-import { AccountCircle, Lock, ContactPage, Email } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { AccountCircle, Lock, ContactPage, Email, CalendarMonth } from '@mui/icons-material';
+import { Link, useNavigate } from 'react-router-dom';
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+
 
 function Register() {
 const emblem = require('./../../Components/img/emblem-hijau.png');
+
+const [firstName, setFirstName] = useState('')
+const [lastName, setLastName] = useState('')
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+const [confirmPassword, setConfirmPassword] = useState('')
+const [noTelp, setNoTelp] = useState('')
+const [birthday, setBirthday] = useState(new Date());
+
+const navigate = useNavigate()
+
+const handleFirstName = (e) => {
+    setFirstName(e.target.value)
+}
+const handleLastName = (e) => {
+    setLastName(e.target.value)
+}
+const handleEmail = (e) => {
+    setEmail(e.target.value)
+}
+const handlePassword = (e) => {
+    setPassword(e.target.value)
+}
+const handleConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value)
+}
+const handleNoTelp = (e) => {
+    setNoTelp(e.target.value)
+}
+// const handleBirthday = (e) => {
+//     setBirthday(e.target.value)
+// }
+
+const handleRegister = () => {
+    console.log({ firstName, lastName, email, password, confirmPassword, noTelp, birthday })
+    axios.post('http://localhost:3004/users',{
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword,
+        noTelp: noTelp,
+        birthday: birthday,
+    })
+    .then(result=>{
+        console.log(result.data)
+        alert('success')
+        localStorage.setItem('token', result.data.token)
+        navigate('/')
+    })
+    .catch(error=>{
+        alert('error register')
+        console.log(error)
+    })
+}
 
 return (
     <div>
@@ -16,15 +75,15 @@ return (
 
     <div className="row login-between">
         <div className="col-md-4">
-            <div className="emblem">
-                <img src={emblem} alt="" />
+            <div>
+                <img  className="emblem" src={emblem} alt="" />
             </div>                
         </div>
         
         <div className="col-md-4">
         <div className="cards justify-content-center form-reg">
        <div className='card-body'>
-       <span className='mt-4' style={{ display: 'flex'}}>
+        <span className='mt-4' style={{ display: 'flex'}}>
             <h4>Register</h4>
         </span>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }} className="mb-2 mt-2">
@@ -33,6 +92,7 @@ return (
             id="input-with-sx" 
             label="First Name" 
             fullWidth variant="standard" 
+            onChange={handleFirstName}
             />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }} className="mb-2 mt-2">
@@ -42,6 +102,7 @@ return (
             label="Last Name" 
             fullWidth 
             variant="standard" 
+            onChange={handleLastName}
             />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }} className="mb-2 mt-2">
@@ -51,6 +112,7 @@ return (
             label="Email" 
             fullWidth 
             variant="standard" 
+            onChange={handleEmail}
             />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
@@ -62,6 +124,7 @@ return (
             hiddenLabel 
             fullWidth 
             variant="standard" 
+            onChange={handlePassword}
             />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
@@ -69,10 +132,11 @@ return (
             <TextField  
             type="password" 
             id="input-with-sx" 
-            label="Password Confirm" 
+            label="Confirm Password" 
             hiddenLabel 
             fullWidth 
             variant="standard" 
+            onChange={handleConfirmPassword}
             />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }} className="mb-2 mt-2">
@@ -82,19 +146,24 @@ return (
             label="Nomor Telefon" 
             fullWidth 
             variant="standard" 
+            onChange={handleNoTelp}
             />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }} className="mb-2 mt-2">
-            <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-            <TextField 
-            id="input-with-sx" 
-            label="Birthday" 
-            fullWidth 
-            variant="standard" 
-            />
+        <CalendarMonth sx={{ color: 'action.active', mr: 1, my: 0.5}} />
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <DatePicker
+          label="Tanggal Lahir"
+          value={birthday}
+          onChange={(newValue) => {
+            setBirthday(newValue);
+          }}
+          renderInput={(params) => <TextField variant="standard" {...params} fullWidth helperText={null} />}
+        />
+        </LocalizationProvider>
         </Box>
         <div className='justify-content-end' style={{ display: 'flex' }}>
-        <button className='login-btn mt-4'>Register</button>
+        <button onClick={handleRegister} className='login-btn mt-4'>Register</button>
         </div>
         <div className='justify-content-start' style={{ display: 'flex', marginTop: '10px' }}>
                 <span className='text-muted text-sm'>Sudah punya akun?</span>

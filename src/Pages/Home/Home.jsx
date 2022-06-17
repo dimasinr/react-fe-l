@@ -1,7 +1,7 @@
 import Navbar from '../../Components/Navbar/NavbarHome'
 import Footer from './../../Components/Footer/Footer'
 import Category from './../..//Components/Category/Category'
-import { BeautyBar } from '../../Components/BeautyBar/BeautyBar'
+import { TopBeautyBar } from '../../Components/BeautyBar/TopBeautyBar'
 import RecTreatment from '../../Components/RecTreatment/RecTreatment'
 import * as ReactBootstrap from 'react-bootstrap'
 import { Header } from '../../Components/Header/Header'
@@ -17,7 +17,7 @@ function Home() {
     </div>
       <Category />
       <hr />
-      <BeautyBar />
+      <TopBeautyBar />
       <hr />
       <RecTreatment />
       <hr />

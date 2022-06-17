@@ -69,20 +69,31 @@ header-login{
 .align-content-end{
     align-content: flex-end;
 }
-@media (min-width: 370px){
+@media (min-width: 320px){
     .emblem{
         display: flex;
         height: 180px;
+        z-index: -12;
         width: 180px;
         margin-top: -90px;
     }
-    .form-login{
-        margin-top: 250px;
+    .form-log{
+        margin-top: -15px;
+    }
+    .form-log:hover{
+        margin-top: -15px;
+    }
+    .form-reg{
+        margin-top: -15px;
+    }
+    .form-reg:hover{
+        margin-top: -15px;
     }
 }
 @media (min-width: 750px){
     .emblem{
         display: flex;
+        z-index: -12;
         height: 270px;
         width: 270px;
         margin-top: -90px;
@@ -94,5 +105,17 @@ header-login{
         height: 400px;
         width: 400px;
         margin-top: -240px;
+    }
+    .form-log{
+        margin-top: -215px;
+    }
+    .form-log:hover{
+        margin-top: -215px;
+    }
+    .form-reg{
+        margin-top: -235px;
+    }
+    .form-reg:hover{
+        margin-top: -235px;
     }
 }

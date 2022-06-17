@@ -57,7 +57,9 @@ const imgtreat = 'https://static.wixstatic.com/media/11062b_2d8875e275244e04b3b7
       Jam Booking Treatment
     </p>
     </span>
-    <Date />
+    <div className="d-flex justify-content-center">
+      <Date />
+    </div>
   </div>
       </div>
     </div>
@@ -69,7 +71,6 @@ const imgtreat = 'https://static.wixstatic.com/media/11062b_2d8875e275244e04b3b7
         Rating & Ulasan
     </span>
     <Review />
-    <hr />
     <RecTreatment />
     </div>
 

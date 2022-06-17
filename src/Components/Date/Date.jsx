@@ -1,25 +1,33 @@
 import * as React from 'react';
-import isWeekend from 'date-fns/isWeekend';
-import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import { CalendarPicker } from '@mui/x-date-pickers/CalendarPicker';
+import Grid from '@mui/material/Grid';
+import { useNavigate } from 'react-router-dom'
 
-export default function StaticDatePickerLandscape() {
-  const [value, setValue] = React.useState(new Date());
+// const minDate = new Date('2020-01-01T00:00:00.000');
+// const maxDate = new Date('2034-01-01T00:00:00.000');
+
+export default function SubComponentsPickers() {
+  const navigate = useNavigate()
+
+  const [date, setDate] = React.useState(new Date());
+  const handleBooking = () => {
+    navigate('/booking/eyelash+extension')
+  }
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <StaticDatePicker
-        orientation="landscape"
-        openTo="day"
-        value={value}
-        shouldDisableDate={isWeekend}
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
-      />
+    <div>
+      <div className="justify-content-center">
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Grid item xs={12} md={6}>
+          <CalendarPicker date={date} onChange={(newDate) => setDate(newDate)} />
+        </Grid>
     </LocalizationProvider>
+        <div className='justify-content-end' style={{ display: 'flex' }}>
+            <button onClick={handleBooking} className='login-btn mt-4 fw-bold'>Book</button>
+        </div>
+      </div>
+    </div>
   );
 }

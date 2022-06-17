@@ -2,8 +2,10 @@ import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstr
 import { Search, ShoppingCart } from '@mui/icons-material';
 import './navbar.css'
 import { useState } from 'react'
+import { Dropdown, ButtonGroup } from 'react-bootstrap';
 // import { Box, TextField } from '@mui/material/';
 import { Link } from 'react-router-dom'
+// import { connect } from 'react-redux'
 
 function NavbarHome() {
 
@@ -49,10 +51,19 @@ const logoImage = require('./../img/logoputih.png');
                 />
                 <Button variant="outline-light rounded-pill"> <Search /> </Button>
             </Form>
-            <Button variant="outline-light rounded-pill ml-1 md:mt-2"> <ShoppingCart /> </Button>
+            <Button variant="outline-light rounded-pill ml-1 m-mt-1"> <ShoppingCart /> </Button>
             <Link to="/login" style={{ textDecoration: 'none' }}>
-              <span className='ml-4 text-white outline-light rounded-lg'>Login</span>
-            </Link>            
+              <span className='ml-4 text-white outline-light rounded-lg m-mt-3'>Login</span>
+            </Link>
+            <Dropdown as={ButtonGroup} className="ml-2 m-mt-1">
+            <img className="user-profile-navbar" src="https://cf.shopee.co.id/file/e8ee7f968a98771fd065d777638eab0f" alt="" />
+
+            <Dropdown.Toggle split variant="standard outline-none" id="dropdown-split-basic" />
+            <Dropdown.Menu>
+              <Dropdown.Item href="/user/profile">User Profile</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Logout</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           </Navbar.Collapse>
         </Container>
       </Navbar>
