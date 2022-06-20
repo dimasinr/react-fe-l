@@ -14,8 +14,8 @@ export const TopBeautyBar = () => {
   const getTopBeautyBar = async () => {
     try{
       let response = await axios.get("https://analisdatacus.000webhostapp.com/topbeautybar.php")
-      setTopBeautyBar(response.data)
-      console.log(response.data);
+      setTopBeautyBar(response.data.result)
+      console.log(response.data.result);
     } catch(e){
       console.log(e.message);
     }
@@ -80,7 +80,15 @@ export const TopBeautyBar = () => {
           slidesToShow: 1,
           slidesToScroll: 1
         }
+      },
+     {
+	breakpoint: 390,
+	settings: {
+	  initialSlide: 1,
+	  slidesToShow: 1,
+	  slidesToScroll: 1
       }
+     }
     ]
   };
 
@@ -98,7 +106,7 @@ return (
   topBeautyBar.map((topbeautybar, index) => {
 
     return(
-      <div key={index} className="col-sm-3 mb-4">
+      <div key={index.id} className="col-sm-3 mb-4">
       <Link to={topbeautybar.url} className='mse'>
       <div className="cards">
            <img className='card-img-top' width={185} height={185} src={topbeautybar.img} alt=""/>
