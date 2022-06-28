@@ -63,7 +63,7 @@ export default function NavbarHome() {
             <Dropdown.Menu>
               <Dropdown.Item href="/user/profile">User Profile</Dropdown.Item>
               <Dropdown.Item href="/">
-                <span onClick={localStorage.clear()}>Logout</span>
+                <span onClick={() => localStorage.clear()}>Logout</span>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown> : (
