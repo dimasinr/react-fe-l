@@ -1,0 +1,16 @@
+.mt-pages-error{
+    margin-top: -60px;
+}
+.font-ep{
+    color: #02979d;
+    font-weight: 600;
+    font-size: 40px;
+}
+.emblem-error{
+    display: flex;
+    position: absolute;
+    margin-top: -230px;
+    margin-left: 80px;
+    height: 400px;
+    width: 400px;
+}

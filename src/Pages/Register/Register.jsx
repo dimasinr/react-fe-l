@@ -1,6 +1,6 @@
 import React,{ useState } from 'react'
 import axios from 'axios'
-import { NavbarMin } from '../../Components/Navbar/NavbarMin'
+import { NavbarAll } from '../../Components/Navbar/NavbarAll'
 import { Box, TextField } from '@mui/material';
 import { AccountCircle, Lock, ContactPage, Email, CalendarMonth } from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
@@ -45,12 +45,12 @@ const handleNoTelp = (e) => {
 
 const handleRegister = () => {
     console.log({ firstName, lastName, email, password, confirmPassword, noTelp, birthday })
-    axios.post('http://localhost:3004/users',{
+    axios.post('http://localhost:3000/api/auth/register',{
         firstName: firstName,
         lastName: lastName,
         email: email,
         password: password,
-        confirmPassword: confirmPassword,
+        // confirmPassword: confirmPassword,
         noTelp: noTelp,
         birthday: birthday,
     })
@@ -58,7 +58,7 @@ const handleRegister = () => {
         console.log(result.data)
         alert('success')
         localStorage.setItem('token', result.data.token)
-        navigate('/')
+        navigate('/login')
     })
     .catch(error=>{
         alert('error register')
@@ -68,9 +68,9 @@ const handleRegister = () => {
 
 return (
     <div>
-    <NavbarMin />
+    <NavbarAll />
     <div className='header-login'>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 320"><path fill="#A6CFCA" fill-opacity="1" d="M0,160L40,138.7C80,117,160,75,240,80C320,85,400,139,480,181.3C560,224,640,256,720,266.7C800,277,880,267,960,256C1040,245,1120,235,1200,202.7C1280,171,1360,117,1400,90.7L1440,64L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 320"><path fill="#A6CFCA" fillOpacity="1" d="M0,160L40,138.7C80,117,160,75,240,80C320,85,400,139,480,181.3C560,224,640,256,720,266.7C800,277,880,267,960,256C1040,245,1120,235,1200,202.7C1280,171,1360,117,1400,90.7L1440,64L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg>
     </div>
 
     <div className="row login-between">

@@ -1,21 +1,24 @@
 import React from 'react'
 import Home from "./Pages/Home/Home";
-import Eth from "./Pages/Home/Eth";
-import Category from "./Pages/Category/Category";
-import BeautyBar from "./Pages/BeautyBar/BeautyBar"
-import Treatment from "./Pages/Treatment/Treatment"
+import BeautyBarPages from "./Pages/BeautyBarPages/BeautyBarPages"
+import TreatmentPages from "./Pages/TreatmentPages/TreatmentPages"
+import CategoryPages from "./Pages/CategoryPages/CategoryPages"
 import Login from "./Pages/Login/Login"
 import Register from "./Pages/Register/Register"
 import UserProfile from "./Pages/User/UserProfile"
-import Booking from "./Components/Booking/Booking"
+import Pages404 from "./../src/Components/PageNotFound/pages404"
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
-import IndexBooking from './Pages/Booking/IndexBooking';
+import { useContext } from 'react'
+import { AuthContext } from './context/AuthContext';
 
 function App() {
+
+const { user } = useContext(AuthContext);
+
 
   return (
     <div className="App">
@@ -23,19 +26,19 @@ function App() {
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
-        <Route path="/eth" element={<Eth />} />
         {/* Auth Pages */}
-        <Route path="/login" element={<Login />} /> 
+        {!user && (<Route path="/login" element={<Login />} />)}
         <Route path="/register" element={<Register />} /> 
+        {/* User Pages */}
         <Route path="/user/profile" element={<UserProfile />} />
         {/* Category */}
-        <Route path="/categories/:id" element={<Category />} /> 
+        <Route path="/categories/:id" element={<CategoryPages />} /> 
         {/* Treatment & booking */}
-        <Route path="/booking/:id" element={<Booking />} /> 
-        <Route path="/treatment/:id" element={<Treatment />} /> 
-        <Route path="/treatment/booking/:id" element={<IndexBooking />} /> 
+        <Route path="/treatment/:id" element={<TreatmentPages />} /> 
         {/* BeautyBar */}
-        <Route path="/beautybar/:id" element={<BeautyBar />} /> 
+        <Route path="/beautybar/:id" element={<BeautyBarPages />} />
+        {/* <Route path="/treatment/:id" element={<BeautyBar />} />   All Treatment */}
+          <Route path="*" element={<Pages404 />} />
       </Routes>
     </Router>
     </div>                                                                                                                        

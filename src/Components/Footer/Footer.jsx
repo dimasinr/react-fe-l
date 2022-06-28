@@ -1,7 +1,7 @@
-import React from 'react'
-import './footer.css'
+import "./footer.css"
 
-const Footer = () => {
+export default function Footer() {
+
   const logoImage = require('./../img/logoputih.png');
 
     return (
@@ -36,5 +36,3 @@ const Footer = () => {
         </div>
     )
 }
-
-export default Footer

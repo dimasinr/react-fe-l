@@ -1,8 +1,5 @@
-.user-profile-settings{
-    width: 70px;
-    height: 70px;
+.img-profile{
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
-}
-.user-img-set{
-    align-content: center;
 }

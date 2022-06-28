@@ -1,0 +1,31 @@
+.cell-book-btn{
+    border: 1px solid #0cb0b6;
+    background-color: white;
+    color: #0cb0b6;
+    border-radius: 5px;
+    font-weight: 500;
+    padding: 5px;
+    font: bold;
+    margin: 0px 5px 5px 5px;
+}
+
+.cell-book-btn:hover{
+    border-color: #22c0c6;
+    background-color: #0cb0b6;
+    color: #ffffff;
+    border-radius: 5px;
+    font-weight: 500;
+    padding: 5px;
+    font: bold;
+    margin: 0px 5px 5px 5px;
+}
+
+.jam-cell{
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.margin-jam{
+    margin-top: -15px;
+}

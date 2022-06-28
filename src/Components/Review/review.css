@@ -3,14 +3,17 @@
     width: 55px;
     border-radius: 50%;
 }
+
 .rev-name{
     /* font-weight: 400; */
     font: bold;
 }
+
 .rev-date{
     font-size: 12px;
     color: rgb(161, 161, 161);
 }
+
 .comment-user{
     margin-left: 20px;
 }
