@@ -23,6 +23,10 @@ export default function NavbarHome() {
     const logoImage = require('./../img/logoputih.png');
     
     const { user } = useContext(AuthContext);
+    const handleLogout = () => {
+      localStorage.clear();
+      navigate("/")
+    }
 
       return (
       <div className="bg-mobile">
@@ -62,8 +66,8 @@ export default function NavbarHome() {
             <Dropdown.Toggle split variant="standard outline-none" id="dropdown-split-basic" />
             <Dropdown.Menu>
               <Dropdown.Item href="/user/profile">User Profile</Dropdown.Item>
-              <Dropdown.Item href="/">
-                <span onClick={() => localStorage.clear()}>Logout</span>
+              <Dropdown.Item onClick={handleLogout}>
+                Logout
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown> : (
