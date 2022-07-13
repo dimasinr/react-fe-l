@@ -3,9 +3,10 @@ import { Search, ShoppingCart } from '@mui/icons-material';
 import './navbar.css'
 import { useState } from 'react'
 import { Dropdown, ButtonGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext';
 import { useContext } from 'react';
+
 
 export default function NavbarHome() {
     
@@ -23,6 +24,8 @@ export default function NavbarHome() {
     const logoImage = require('./../img/logoputih.png');
     
     const { user } = useContext(AuthContext);
+    
+    const navigate = useNavigate();
     const handleLogout = () => {
       localStorage.clear();
       navigate("/")
